@@ -22,12 +22,22 @@
     			overflow-y: auto;
     			overflow-x: hidden;
     		}
-            .viewerBadge_container__r5tak {
-                display: none !important;
+            .overlay {
+                background-color: #FDF5E6;
+                bottom: 0;
+                display: flex;
+                font-size: .875rem;
+                line-height: 1.25rem;
+                position: fixed;
+                right: 0;
+                z-index: 51;
+                width: 16rem;
+                height: 6rem;
             }
     	</style>
     </head>
     <body>
+        <div class="overlay"></div>
     	<iframe src="https://appgi-20d4xpzu2pwi.streamlit.app/?embedded=true"
     			frameborder="0"
     			marginheight="0"
