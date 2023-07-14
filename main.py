@@ -9,6 +9,7 @@ from visualize import (
     visualize_radar_chart,
     visualize_heatmap,
     visualize_histogram,
+    visualize_filtered_histogram,
     visualize_box_plot,
     visualize_violin_plot,
     visualize_area_plot,
@@ -63,7 +64,7 @@ def main():
 
             visualization_types = st.multiselect(
                 "Select visualization types",
-                ["Bar Chart", "Line Chart", "Scatter Plot", "Radar Chart", "Heatmap", "Histogram", "Box Plot", "Violin Plot", "Area Plot", "Stacked Bar Plot"]
+                ["Bar Chart", "Line Chart", "Scatter Plot", "Radar Chart", "Heatmap", "Histogram", "Filtered Histogram", "Box Plot", "Violin Plot", "Area Plot", "Stacked Bar Plot"]
             )
 
             if "Bar Chart" in visualization_types:
@@ -83,6 +84,10 @@ def main():
 
             if "Histogram" in visualization_types:
                 visualize_histogram(filtered_df, columns)
+
+            if "Filtered Histogram" in visualization_types:
+                threshold = st.sidebar.slider("Threshold", 0, 100, 0, key='threshold')
+                visualize_filtered_histogram(df, threshold)
 
             if "Box Plot" in visualization_types:
                 visualize_box_plot(filtered_df, columns)
