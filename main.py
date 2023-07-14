@@ -7,7 +7,7 @@ import os
 
 @st.cache_resource
 def load_data(path):
-    data = pd.read_csv(path, nrows=100)
+    data = pd.read_csv(path)
     return data
 
 
