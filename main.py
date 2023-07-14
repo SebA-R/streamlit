@@ -34,7 +34,7 @@ def main():
     default_limit = 100
 
     # Get the row_limit value from the sidebar slider
-    row_limit = st.sidebar.slider("Row Limit", 10, 21228, default_limit, key='row_limit')
+    row_limit = st.sidebar.slider("Row Limit", 0, 21228, default_limit, key='row_limit')
 
     # Select the columns for visualization
     columns = st.multiselect("Select columns for visualization", df.columns[3:])
