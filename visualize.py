@@ -4,6 +4,9 @@ import pandas as pd
 import streamlit as st
 
 
+plt.rcParams['font.family'] = 'monospace'
+bar_color = "#1F0C48"
+
 def filter_numeric_columns(df, columns):
     return [column for column in columns if pd.api.types.is_numeric_dtype(df[column])]
 
@@ -15,7 +18,7 @@ def visualize_bar_chart(df, columns, x_column):
         plt.figure(figsize=(8, 6))
         x = df[x_column]
         y = df[column]
-        plt.bar(x, y, alpha=0.7)
+        plt.bar(x, y, alpha=0.7, color=bar_color)
         plt.xlabel(x_column)
         plt.ylabel(column)
         plt.xticks(rotation=90)
@@ -94,7 +97,7 @@ def visualize_histogram(df, columns):
     for column in columns:
         st.write(f"### {column} Distribution")
         plt.figure(figsize=(8, 6))
-        plt.hist(df[column], bins="auto", alpha=0.7)
+        plt.hist(df[column], bins="auto", alpha=0.7, color=bar_color)
         plt.xlabel(column)
         plt.ylabel("Count")
         plt.tight_layout()
