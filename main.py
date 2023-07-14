@@ -23,7 +23,7 @@ def load_data(path):
 
 
 def main():
-    st.title("Molecule Data Visualizer")
+    st.title("TD-DFT functionals scoring system")
 
     # Get the path of the CSV file
     csv_path = os.path.join(os.path.dirname(__file__), "scores_without_NaN.csv")
