@@ -21,6 +21,8 @@ def read_smiles_from_file(file):
 def render():
     st.title("Predict from single SMILES or CSV")
 
+    st.write("Below, you can enter any valid SMILES string and DELFI will predict the score for the molecule(s) given.\nPlease, note that DELFI has been trained on QM8 dataset, which contains organic molecules with up to 8 CONF atoms.\nAny prediction on molecules that significantly differ from the ones contained in the training test should be carefully benchmarked")
+
     # Add a dropdown for user choice
     user_choice = st.selectbox("Choose an option:", ("Enter SMILES String","File Upload"))
 
@@ -44,8 +46,6 @@ def render():
         df_uploaded_smiles = pd.DataFrame({"Uploaded SMILES": smiles_input})
         st.write("Uploaded SMILES:")
         st.dataframe(df_uploaded_smiles)
-
-
     
 
     if st.button("Predict"):
