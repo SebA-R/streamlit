@@ -108,9 +108,7 @@ def main(smiles_input):
     model = load_model(os.path.join(os.path.dirname(__file__), os.pardir, 'models', 'functional_recommender.pt'))
     predictions = predict(data, model)
 
-    predictions_table = pd.concat([pd.DataFrame(filtered_smiles, columns=['SMILES']), pd.DataFrame(predictions, columns=functionals_dictionary.keys())], axis=1)
-
-    return predictions_table
+    return filtered_smiles, predictions
 
 
 if __name__ == '__main__':
